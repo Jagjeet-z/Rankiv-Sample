@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rankiv — Digital Marketing Agency</title>
+<title>Rankiv — Performance SEO & Local Search Specialists</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- Loaded Poppins for clean and beautiful Hindi/English TypographyFallback -->
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
@@ -28,7 +29,7 @@ html{scroll-behavior:smooth;font-size:16px}
 body{
   background:var(--bg);
   color:var(--white);
-  font-family:'Inter',system-ui,sans-serif;
+  font-family:'Poppins',system-ui,sans-serif;
   overflow-x:hidden;
   line-height:1.6;
 }
@@ -36,7 +37,6 @@ body{
 /* ─── CANVAS ─── */
 #cvs{
   position:fixed;inset:0;z-index:0;pointer-events:none;
-  /* canvas sits behind, darkened by overlay */
 }
 #overlay{
   position:fixed;inset:0;z-index:1;pointer-events:none;
@@ -49,7 +49,7 @@ body{
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   padding:0 clamp(20px,4vw,60px);
-  height:64px;display:flex;align-items:center;justify-content:space-between;
+  height:72px;display:flex;align-items:center;justify-content:space-between;
   border-bottom:1px solid transparent;
   transition:background .35s,border-color .35s;
 }
@@ -61,21 +61,23 @@ nav.scrolled{
 }
 .logo{
   font-family:'JetBrains Mono',monospace;
-  font-size:17px;font-weight:700;
+  font-size:18px;font-weight:800;
   color:var(--white);text-decoration:none;
-  display:flex;align-items:center;gap:10px;
-  letter-spacing:.03em;
+  display:flex;align-items:center;gap:12px;
+  letter-spacing:.05em;
 }
 .logo-sq{
-  width:34px;height:34px;background:var(--electric);
-  border-radius:6px;display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;
+  background:linear-gradient(135deg, #4DFFB4 0%, #3B82FF 100%);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
   flex-shrink:0;
+  box-shadow:0 4px 14px rgba(77,255,180,0.25);
 }
 .logo-sq svg{display:block}
 .nav-r{display:flex;align-items:center;gap:32px}
 .nav-links{list-style:none;display:flex;align-items:center;gap:28px}
 .nav-links a{
-  font-size:13px;font-weight:400;
+  font-size:13px;font-weight:500;
   color:var(--muted);text-decoration:none;
   letter-spacing:.04em;text-transform:uppercase;
   transition:color .2s;
@@ -91,6 +93,19 @@ nav.scrolled{
   transition:all .2s;white-space:nowrap;
 }
 .nav-btn:hover{background:var(--electric);color:var(--bg)}
+
+/* ─── LANGUAGE TOGGLE ─── */
+.lang-btn{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 14px;
+  border:1px solid var(--border);border-radius:4px;
+  background:transparent;color:var(--off);
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;font-weight:700;letter-spacing:.04em;
+  cursor:pointer;transition:all .2s;white-space:nowrap;
+}
+.lang-btn:hover{border-color:var(--electric);color:var(--electric)}
+.lang-btn.active{border-color:var(--electric);background:rgba(77,255,180,0.08);color:var(--electric)}
 
 /* hamburger */
 .hamburger{
@@ -109,7 +124,7 @@ nav.scrolled{
 /* mobile nav drawer */
 .mob-nav{
   display:none;
-  position:fixed;top:64px;left:0;right:0;bottom:0;
+  position:fixed;top:72px;left:0;right:0;bottom:0;
   background:rgba(8,11,20,0.98);
   backdrop-filter:blur(20px);
   z-index:99;
@@ -137,7 +152,7 @@ nav.scrolled{
 #hero{
   min-height:100vh;
   display:flex;flex-direction:column;justify-content:center;
-  padding:64px clamp(20px,4vw,60px) 60px;
+  padding:80px clamp(20px,4vw,60px) 60px;
   position:relative;
 }
 .hero-tag{
@@ -152,11 +167,11 @@ nav.scrolled{
 h1{
   font-family:'Bricolage Grotesque',sans-serif;
   font-size:clamp(44px,7.5vw,96px);
-  font-weight:800;line-height:1.0;
+  font-weight:800;line-height:1.05;
   letter-spacing:-.04em;
   color:var(--white);
   margin-bottom:24px;
-  max-width:760px;
+  max-width:850px;
 }
 h1 .em{
   color:var(--electric);
@@ -166,7 +181,7 @@ h1 .em{
   font-size:clamp(15px,1.8vw,18px);
   color:var(--muted);
   line-height:1.8;font-weight:300;
-  max-width:520px;margin-bottom:44px;
+  max-width:640px;margin-bottom:44px;
 }
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 
@@ -192,7 +207,7 @@ h1 .em{
   border:1px solid var(--border);
   border-radius:4px;
   color:var(--off);
-  font-family:'Inter',sans-serif;
+  font-family:'Poppins',sans-serif;
   font-size:15px;font-weight:400;
   text-decoration:none;cursor:pointer;
   transition:all .2s;
@@ -201,7 +216,7 @@ h1 .em{
 
 /* hero stats row */
 .hero-stats{
-  display:flex;gap:0;margin-top:56px;
+  display:flex;margin-top:56px;
   border-top:1px solid var(--border);
   padding-top:32px;
   flex-wrap:wrap;gap:32px;
@@ -213,7 +228,6 @@ h1 .em{
   color:var(--white);line-height:1;letter-spacing:-.03em;
   margin-bottom:6px;
 }
-.hstat-val span{color:var(--electric)}
 .hstat-lbl{
   font-family:'JetBrains Mono',monospace;
   font-size:11px;color:var(--muted);
@@ -237,14 +251,14 @@ h1 .em{
 h2{
   font-family:'Bricolage Grotesque',sans-serif;
   font-size:clamp(28px,4.5vw,56px);
-  font-weight:800;line-height:1.05;
+  font-weight:800;line-height:1.1;
   letter-spacing:-.035em;
   color:var(--white);
   margin-bottom:16px;
 }
 .sec-desc{
   font-size:16px;color:var(--muted);
-  line-height:1.75;font-weight:300;max-width:500px;
+  line-height:1.75;font-weight:300;max-width:540px;
 }
 
 /* ─── SERVICES ─── */
@@ -304,7 +318,7 @@ h2{
   color:var(--white);margin-bottom:10px;
 }
 .svc-card .svc-tagline{
-  font-size:13px;color:var(--muted);
+  font-size:13.5px;color:var(--muted);
   line-height:1.6;margin-bottom:20px;font-weight:300;
 }
 .svc-points{
@@ -377,6 +391,166 @@ h2{
 .badge-blue{color:var(--blue);background:rgba(59,130,255,0.08);border:1px solid rgba(59,130,255,0.18)}
 .badge-orange{color:var(--orange);background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.18)}
 
+/* ─── BLOGS SECTION (Sleek Single Column Center Layout) ─── */
+#blog { background: var(--bg); position: relative; }
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.blog-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s, border-color 0.25s, background 0.25s;
+}
+.blog-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(77, 255, 180, 0.4);
+  background: var(--surface2);
+}
+.blog-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.blog-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--electric);
+  background: rgba(77, 255, 180, 0.08);
+  padding: 4px 10px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.blog-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+.blog-card h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.blog-excerpt {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  font-weight: 300;
+}
+.blog-btn {
+  background: transparent;
+  border: none;
+  color: var(--electric);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  transition: color 0.2s, transform 0.2s;
+}
+.blog-btn:hover {
+  color: #6fffca;
+  transform: translateX(4px);
+}
+
+/* ─── BLOG MODAL OVERLAY ─── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 11, 20, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+}
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  max-width: 760px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 48px;
+  position: relative;
+  transform: translateY(24px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 12px 64px rgba(0, 0, 0, 0.5);
+}
+.modal-overlay.open .modal-box {
+  transform: translateY(0);
+}
+.modal-close {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 32px;
+  cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
+}
+.modal-close:hover {
+  color: var(--white);
+}
+.modal-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(24px, 3.5vw, 34px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+.modal-body {
+  font-size: 15.5px;
+  color: var(--off);
+  line-height: 1.8;
+  font-weight: 300;
+}
+.modal-body p {
+  margin-bottom: 18px;
+}
+.modal-body h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  margin-top: 32px;
+  margin-bottom: 14px;
+}
+
 /* ─── CONTACT ─── */
 #contact-section{background:var(--surface)}
 .contact-wrap{
@@ -415,7 +589,7 @@ h2{
   background:rgba(255,255,255,0.04);
   border:1px solid var(--border);border-radius:4px;
   padding:12px 14px;color:var(--white);
-  font-family:'Inter',sans-serif;font-size:14px;font-weight:300;
+  font-family:'Poppins',sans-serif;font-size:14px;font-weight:300;
   outline:none;resize:vertical;width:100%;
   transition:border-color .2s,background .2s;
   -webkit-appearance:none;appearance:none;
@@ -490,6 +664,7 @@ footer p{
   .proc-sticky{position:static}
   .contact-wrap{grid-template-columns:1fr;padding:64px 20px}
   .form-row{grid-template-columns:1fr}
+  .blog-grid{grid-template-columns:1fr;gap:24px;padding:0}
   footer{flex-direction:column;text-align:center;padding:24px 20px}
 }
 @media(max-width:480px){
@@ -507,7 +682,7 @@ footer p{
 <div id="overlay"></div>
 
 <!-- WhatsApp Float -->
-<a href="https://wa.me/918319724668" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp Rankiv">
+<a href="https://wa.me/919407440075" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp Rankiv">
   <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
     <path d="M13 1.5C6.649 1.5 1.5 6.649 1.5 13c0 2.032.544 3.938 1.494 5.578L1.5 24.5l6.137-1.476A11.433 11.433 0 0013 24.5c6.351 0 11.5-5.149 11.5-11.5S19.351 1.5 13 1.5z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
     <path d="M8.5 12c0 3.314 2.686 6 6 6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
@@ -521,18 +696,25 @@ footer p{
 <nav id="nav">
   <a href="#" class="logo">
     <div class="logo-sq">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path d="M4 17L10 4L16 17M7 11.5H13" stroke="#080B14" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Premium Upward Trend Line / Ranking Icon -->
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#080B14" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 7L13.5 15.5L8.5 10.5L2 17" />
+        <polyline points="16 7 22 7 22 13" />
       </svg>
     </div>
     RANKIV
   </a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#process">Process</a></li>
+    <li><a href="#services" data-en="Services" data-hi="सेवाएं">Services</a></li>
+    <li><a href="#process" data-en="Process" data-hi="प्रक्रिया">Process</a></li>
+    <li><a href="#blog" data-en="Blogs" data-hi="ब्लॉग">Blogs</a></li>
   </ul>
   <div class="nav-r">
-    <a href="#contact" class="nav-btn desktop-only">Let's Talk</a>
+    <button class="lang-btn" id="langToggle" aria-label="Translate to Hindi">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0"><path d="M1 3h6M4 1v2M2.5 3c0 2.5 2 4.5 4 5.5M6.5 3C6 5 4.5 7 2 8.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.5 13l3-7 3 7M9 10.5h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span id="langLabel">हिंदी</span>
+    </button>
+    <a href="#contact" class="nav-btn desktop-only" data-en="Let's Talk" data-hi="बात करें">Let's Talk</a>
     <button class="hamburger" id="ham" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -541,47 +723,49 @@ footer p{
 
 <!-- Mobile Nav -->
 <div class="mob-nav" id="mobNav">
-  <a href="#services" class="mob-link">Services</a>
-  <a href="#process" class="mob-link">Process</a>
-  <a href="#contact" class="mob-link">Contact</a>
-  <a href="#contact" class="mob-cta">Let's Talk →</a>
+  <a href="#services" class="mob-link" data-en="Services" data-hi="सेवाएं">Services</a>
+  <a href="#process" class="mob-link" data-en="Process" data-hi="प्रक्रिया">Process</a>
+  <a href="#blog" class="mob-link" data-en="Blogs" data-hi="ब्लॉग">Blogs</a>
+  <a href="#contact" class="mob-link" data-en="Contact" data-hi="संपर्क">Contact</a>
+  <a href="#contact" class="mob-cta" data-en="Let's Talk →" data-hi="बात करें →">Let's Talk →</a>
 </div>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-tag r">
+  <div class="hero-tag r" data-en="Local SEO & Search Engine Dominance : India" data-hi="लोकल SEO और सर्च इंजन डॉमिनेंस : भारत">
     <span class="hero-tag-dot"></span>
-    Digital Marketing Agency — India
+    Local SEO & Search Engine Dominance : India
   </div>
   <h1 class="r d1">
-    We make local brands<br><span class="em">un-ignorable.</span>
+    <span data-en="We make local brands" data-hi="हम लोकल ब्रांड्स को">We make local brands</span><br>
+    <span class="em" data-en="un-ignorable on Google." data-hi="गूगल पर सबसे ऊपर रैंक कराते हैं।">un-ignorable on Google.</span>
   </h1>
-  <p class="hero-sub r d2">
-    SEO. Paid Ads. Social Media. Web Development. Video. Brand Design — everything coordinated under one roof so your business dominates every screen.
+  <p class="hero-sub r d2" data-en="Performance local SEO, optimized web design, and search-focused content engineered to rank your local business at the absolute top of Google Search." data-hi="परफॉरमेंस लोकल SEO, ऑप्टिमाइज्ड वेब डिजाइन और सर्च-केंद्रित कंटेंट जो आपके लोकल बिजनेस को गूगल सर्च पर सबसे ऊपर रैंक कराने के लिए डिज़ाइन किया गया है।">
+    Performance local SEO, optimized web design, and search-focused content engineered to rank your local business at the absolute top of Google Search.
   </p>
   <div class="hero-btns r d3">
-    <a href="#contact" class="btn-primary">
+    <a href="#contact" class="btn-primary" data-en="Get free strategy call" data-hi="फ्री स्ट्रेटजी कॉल करें">
       Get free strategy call
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4.5L13 8L9 11.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-    <a href="#services" class="btn-ghost">See what we do</a>
+    <a href="#services" class="btn-ghost" data-en="See what we do" data-hi="हमारी सेवाएं देखें">See what we do</a>
   </div>
   <div class="hero-stats r d4">
     <div class="hstat">
-      <div class="hstat-val">10<span>+</span></div>
-      <div class="hstat-lbl">Clients Served</div>
+      <div class="hstat-val" data-en="10+" data-hi="10+">10+</div>
+      <div class="hstat-lbl" data-en="Clients Served" data-hi="संतुष्ट क्लाइंट्स">Clients Served</div>
     </div>
     <div class="hstat">
-      <div class="hstat-val">100<span>%+</span></div>
-      <div class="hstat-lbl">Avg Growth</div>
+      <div class="hstat-val" data-en="300%+" data-hi="300%+">300%+</div>
+      <div class="hstat-lbl" data-en="Avg Growth" data-hi="औसत विकास">Avg Growth</div>
     </div>
     <div class="hstat">
-      <div class="hstat-val">98<span>%</span></div>
-      <div class="hstat-lbl">Retention Rate</div>
+      <div class="hstat-val" data-en="98%" data-hi="98%">98%</div>
+      <div class="hstat-lbl" data-en="Retention Rate" data-hi="रिटेंशन दर">Retention Rate</div>
     </div>
     <div class="hstat">
-      <div class="hstat-val">₹6lc<span>+</span></div>
-      <div class="hstat-lbl">Revenue Generated</div>
+      <div class="hstat-val" data-en="₹3 Lakh+" data-hi="₹3 लाख+">₹3 Lakh+</div>
+      <div class="hstat-lbl" data-en="Revenue Generated" data-hi="राजस्व उत्पन्न">Revenue Generated</div>
     </div>
   </div>
 </section>
@@ -591,22 +775,22 @@ footer p{
   <div class="ticker-fade-l"></div>
   <div class="ticker-fade-r"></div>
   <div class="ticker-track" id="ticker">
-    <div class="ticker-item">Local SEO<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Google Ads<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Meta Ads<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Instagram Growth<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Web Development<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Reels & Video<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Brand Identity<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Content Strategy<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Local SEO<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Google Ads<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Meta Ads<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Instagram Growth<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Web Development<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Reels & Video<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Brand Identity<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Content Strategy<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Local SEO" data-hi="लोकल SEO">Local SEO<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Google Ads" data-hi="गूगल एड्स">Google Ads<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Meta Ads" data-hi="मेटा एड्स">Meta Ads<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Instagram Growth" data-hi="इंस्टाग्राम ग्रोथ">Instagram Growth<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Web Development" data-hi="वेब डेवलपमेंट">Web Development<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Reels & Video" data-hi="रील्स और वीडियो">Reels & Video<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Brand Identity" data-hi="ब्रांड आइडेंटिटी">Brand Identity<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Content Strategy" data-hi="कंटेंट स्ट्रेटजी">Content Strategy<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Local SEO" data-hi="लोकल SEO">Local SEO<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Google Ads" data-hi="गूगल एड्स">Google Ads<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Meta Ads" data-hi="मेटा एड्स">Meta Ads<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Instagram Growth" data-hi="इंस्टाग्राम ग्रोथ">Instagram Growth<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Web Development" data-hi="वेब डेवलपमेंट">Web Development<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Reels & Video" data-hi="रील्स और वीडियो">Reels & Video<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Brand Identity" data-hi="ब्रांड आइडेंटिटी">Brand Identity<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Content Strategy" data-hi="कंटेंट स्ट्रेटजी">Content Strategy<div class="ticker-dot"></div></div>
   </div>
 </div>
 
@@ -614,9 +798,9 @@ footer p{
 <section id="services">
 <div class="svc-section">
   <div class="svc-header r">
-    <div class="sec-label">What we do</div>
-    <h2>Six weapons.<br>One agency.</h2>
-    <p class="sec-desc">Everything your local business needs to build, grow, and own its digital presence — coordinated under one roof.</p>
+    <div class="sec-label" data-en="What we do" data-hi="हम क्या करते हैं">What we do</div>
+    <h2 data-en="Six weapons. One focus: SEO." data-hi="छह हथियार। एक फोकस: SEO।">Six weapons. One focus: SEO.</h2>
+    <p class="sec-desc" data-en="Everything your local business needs to build, grow, and rank at the top of search. All elements engineered to maximize local authority." data-hi="आपके लोकल बिजनेस को गूगल सर्च पर सबसे ऊपर लाने के लिए जो कुछ भी चाहिए, वो सब एक जगह। सभी सेवाएं आपकी लोकल अथॉरिटी बढ़ाने के लिए डिजाइन की गई हैं।">Everything your local business needs to build, grow, and rank at the top of search. All elements engineered to maximize local authority.</p>
   </div>
   <div class="svc-grid">
 
@@ -631,16 +815,16 @@ footer p{
             <path d="M10 3.5V4.5M10 15.5V16.5M3.5 10H4.5M15.5 10H16.5" stroke="#4DFFB4" stroke-width="1.2" stroke-linecap="round"/>
           </svg>
         </div>
-        <span class="svc-price-badge">From ₹8,000/mo</span>
+        <span class="svc-price-badge" data-en="From ₹8,000/mo" data-hi="₹8,000/माह से">From ₹8,000/mo</span>
       </div>
-      <h3>Local SEO</h3>
-      <p class="svc-tagline">Dominate your city's search results — Google Maps, organic rankings, and everywhere your customers look.</p>
+      <h3 data-en="Local SEO" data-hi="लोकल SEO">Local SEO</h3>
+      <p class="svc-tagline" data-en="Dominate local search: Google Maps, organic rankings, and everywhere your customers look." data-hi="लोकल सर्च पर राज करें: गूगल मैप्स, आर्गेनिक रैंकिंग और हर वो जगह जहाँ आपके ग्राहक आपको खोज रहे हैं।">Dominate local search: Google Maps, organic rankings, and everywhere your customers look.</p>
       <ul class="svc-points">
-        <li>Google Business Profile setup, optimization, and weekly posting to maximize local map pack rankings</li>
-        <li>Hyper-local keyword research targeting your city, area, and surrounding neighbourhoods</li>
-        <li>Citation building across 40+ Indian business directories (Justdial, Sulekha, IndiaMart, etc.)</li>
-        <li>On-page SEO — titles, meta tags, schema markup, and content optimization for local intent</li>
-        <li>Monthly rank-tracking reports with competitor gap analysis and clear next-step recommendations</li>
+        <li data-en="Google Business Profile setup, optimization, and weekly posting to maximize local map pack rankings" data-hi="लोकल मैप पैक रैंकिंग्स को सबसे ऊपर ले जाने के लिए गूगल बिजनेस प्रोफाइल सेटअप, ऑप्टिमाइजेशन और साप्ताहिक पोस्टिंग">Google Business Profile setup, optimization, and weekly posting to maximize local map pack rankings</li>
+        <li data-en="Hyper-local keyword research targeting your city, area, and surrounding neighbourhoods" data-hi="आपके शहर, विशेष स्थानीय क्षेत्रों और आस-पास के इलाकों को टारगेट करने वाली सटीक हाइपर-लोकल कीवर्ड रिसर्च">Hyper-local keyword research targeting your city, area, and surrounding neighbourhoods</li>
+        <li data-en="Citation building across 40+ Indian business directories including Justdial, Sulekha, and IndiaMart" data-hi="Justdial, Sulekha और IndiaMart जैसी 40 से अधिक प्रमुख भारतीय बिजनेस डायरेक्टरीज में साइटेशन बिल्डिंग">Citation building across 40+ Indian business directories including Justdial, Sulekha, and IndiaMart</li>
+        <li data-en="On-page SEO including titles, meta tags, schema markup, and content optimization for local intent" data-hi="लोकल यूजर्स के लिए टाइटल्स, मेटा टैग्स, स्कीमा मार्कअप और कंटेंट ऑप्टिमाइजेशन समेत सम्पूर्ण ऑन-पेज SEO">On-page SEO including titles, meta tags, schema markup, and content optimization for local intent</li>
+        <li data-en="Monthly rank-tracking reports with competitor gap analysis and clear next-step recommendations" data-hi="प्रतियोगियों के विश्लेषण और स्पष्ट अगले रणनीतिक कदमों के साथ मासिक रैंक-ट्रैकिंग रिपोर्ट">Monthly rank-tracking reports with competitor gap analysis and clear next-step recommendations</li>
       </ul>
     </div>
 
@@ -654,16 +838,16 @@ footer p{
             <path d="M3 19.5H19" stroke="#4DFFB4" stroke-width="1.2" stroke-linecap="round"/>
           </svg>
         </div>
-        <span class="svc-price-badge">From ₹10,000/mo</span>
+        <span class="svc-price-badge" data-en="From ₹10,000/mo" data-hi="₹10,000/माह से">From ₹10,000/mo</span>
       </div>
-      <h3>Paid Advertising</h3>
-      <p class="svc-tagline">Google and Meta ads engineered for real leads — every rupee tracked, tested, and optimized for maximum return.</p>
+      <h3 data-en="Paid Search Ads" data-hi="पेड सर्च विज्ञापन्स">Paid Search Ads</h3>
+      <p class="svc-tagline" data-en="Google Search and Meta ads engineered to capture immediate buyer intent while your long-term organic SEO authority builds." data-hi="गूगल सर्च और मेटा विज्ञापन जो आपके ब्रांड के लिए तुरंत ग्राहक लाते हैं, जब तक कि आपका लॉन्ग-टर्म आर्गेनिक SEO प्रभाव मजबूत होता है।">Google Search and Meta ads engineered to capture immediate buyer intent while your long-term organic SEO authority builds.</p>
       <ul class="svc-points">
-        <li>Google Search, Display, Performance Max — campaigns built around high-intent buyers in your area</li>
-        <li>Meta (Facebook & Instagram) ads with laser-targeted audience segmentation by location, interest, and behaviour</li>
-        <li>A/B testing of creatives, copy, and landing pages every sprint cycle to continuously improve conversion rates</li>
-        <li>Full-funnel retargeting — re-engage website visitors, app users, and video viewers with follow-up ads</li>
-        <li>Weekly performance reports with ROAS, CPL, and CPC breakdowns — no hiding behind vanity metrics</li>
+        <li data-en="Google Search, Display, Performance Max campaigns built around high-intent keywords in your area" data-hi="गूगल सर्च, डिस्प्ले और परफॉरमेंस मैक्स कैंपेन्स: आपके इलाके के हाई-इंटेंट कीवर्ड्स के आधार पर विशेष अभियान">Google Search, Display, Performance Max campaigns built around high-intent keywords in your area</li>
+        <li data-en="Meta ads with laser-targeted audience segmentation by location, interest, and behaviour" data-hi="लोकेशन, रुचि और व्यवहार के आधार पर लेजर-टारगेटेड ऑडियंस के साथ फेसबुक और इंस्टाग्राम विज्ञापन">Meta ads with laser-targeted audience segmentation by location, interest, and behaviour</li>
+        <li data-en="A/B testing of creatives, copy, and landing pages every sprint cycle to continuously improve conversion rates" data-hi="कनवर्जन रेट्स को लगातार सुधारने के लिए क्रिएटिव्स, विज्ञापन कॉपी और लैंडिंग पेजेस की नियमित A/B टेस्टिंग">A/B testing of creatives, copy, and landing pages every sprint cycle to continuously improve conversion rates</li>
+        <li data-en="Full-funnel retargeting to re-engage website visitors, app users, and video viewers with follow-up ads" data-hi="फुल-फनल रीटार्गेटिंग: वेबसाइट विजिटर्स और वीडियो देखने वालों को फॉलो-अप विज्ञापनों के साथ फिर से जोड़ना">Full-funnel retargeting to re-engage website visitors, app users, and video viewers with follow-up ads</li>
+        <li data-en="Weekly performance reports with ROAS, CPL, and CPC breakdowns: no hiding behind vanity metrics" data-hi="ROAS, CPL और CPC ब्रेकडाउन के साथ साप्ताहिक परफॉरमेंस रिपोर्ट्स: कोई दिखावटी आंकड़े नहीं, सिर्फ असली नतीजे">Weekly performance reports with ROAS, CPL, and CPC breakdowns: no hiding behind vanity metrics</li>
       </ul>
     </div>
 
@@ -678,16 +862,16 @@ footer p{
             <path d="M8 9.5L14 6.5M8 12.5L14 15.5" stroke="#4DFFB4" stroke-width="1.4" stroke-linecap="round"/>
           </svg>
         </div>
-        <span class="svc-price-badge">From ₹10,000/mo</span>
+        <span class="svc-price-badge" data-en="From ₹10,000/mo" data-hi="₹10,000/माह से">From ₹10,000/mo</span>
       </div>
-      <h3>Social Media</h3>
-      <p class="svc-tagline">Consistent, on-brand content that builds a community that actually buys — Instagram, Facebook, and beyond.</p>
+      <h3 data-en="Search-Optimized Social" data-hi="सर्च-ऑप्टिमाइज़्ड सोशल">Search-Optimized Social</h3>
+      <p class="svc-tagline" data-en="Social signals that boost your online brand authority and support your organic search rankings." data-hi="सोशल मीडिया सिग्नल्स जो आपके ब्रांड की ऑनलाइन अथॉरिटी को बढ़ाते हैं और गूगल आर्गेनिक रैंकिंग को डायरेक्ट सपोर्ट करते हैं।">Social signals that boost your online brand authority and support your organic search rankings.</p>
       <ul class="svc-points">
-        <li>Full content calendar with 20–30 posts/month — graphics, captions, stories, and hashtag strategy</li>
-        <li>Brand voice development so every post sounds like you, not a generic agency template</li>
-        <li>Community management — responding to comments and DMs to keep your audience warm and engaged</li>
-        <li>Instagram Reels and Facebook Shorts integration for maximum organic reach on the algorithm</li>
-        <li>Monthly analytics report covering reach, engagement rate, follower growth, and best-performing content</li>
+        <li data-en="Full content calendar with 20 to 30 posts per month: graphics, captions, stories, and hashtag strategy" data-hi="हर महीने 20 से 30 पोस्ट का पूरा कंटेंट कैलेंडर: आकर्षक ग्राफिक्स, कैप्शंस, स्टोरीज और हैशटैग स्ट्रेटजी">Full content calendar with 20 to 30 posts per month: graphics, captions, stories, and hashtag strategy</li>
+        <li data-en="Brand voice development so every post sounds like you, not a generic template" data-hi="ब्रांड वॉइस डेवलपमेंट ताकि आपकी हर पोस्ट असली लगे, न कि किसी जेनेरिक टेम्पलेट जैसी">Brand voice development so every post sounds like you, not a generic template</li>
+        <li data-en="Community management including responding to comments and DMs to keep your audience warm and engaged" data-hi="कम्युनिटी मैनेजमेंट: दर्शकों को एक्टिव रखने के लिए उनके कमेंट्स और डायरेक्ट मैसेज (DMs) के त्वरित जवाब">Community management including responding to comments and DMs to keep your audience warm and engaged</li>
+        <li data-en="Instagram Reels and Facebook Shorts integration for maximum organic reach on the algorithm" data-hi="इंस्टाग्राम रील्स और फेसबुक शॉर्ट्स का सही इस्तेमाल ताकि बिना पैसे दिए एल्गोरिथम के जरिए ज्यादा लोगों तक पहुंचें">Instagram Reels and Facebook Shorts integration for maximum organic reach on the algorithm</li>
+        <li data-en="Monthly analytics report covering reach, engagement rate, follower growth, and best-performing content" data-hi="रीच, इंगेजमेंट रेट, फॉलोअर्स की ग्रोथ और बेस्ट पोस्ट्स के विश्लेषण के साथ मासिक एनालिटिक्स रिपोर्ट">Monthly analytics report covering reach, engagement rate, follower growth, and best-performing content</li>
       </ul>
     </div>
 
@@ -703,16 +887,16 @@ footer p{
             <path d="M8.5 13L11 11L8.5 9M12 13H15.5" stroke="#4DFFB4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <span class="svc-price-badge">From ₹25,000 once</span>
+        <span class="svc-price-badge" data-en="From ₹25,000 once" data-hi="₹25,000 (एक बार)">From ₹25,000 once</span>
       </div>
-      <h3>Web Development</h3>
-      <p class="svc-tagline">Fast, mobile-first websites that load in under 2 seconds and convert visitors into paying customers from day one.</p>
+      <h3 data-en="SEO-First Development" data-hi="SEO-केंद्रित वेब डेवलपमेंट">SEO-First Development</h3>
+      <p class="svc-tagline" data-en="Fast, mobile-first websites with clean semantic code, built specifically to score 90+ on Google PageSpeed and convert traffic." data-hi="तेज और मोबाइल-फ्रेंडली वेबसाइट्स जो गूगल पेजस्पीड पर 90+ स्कोर करें, साफ़ सेमेटिक कोड में बनी हों और विजिटर्स को कस्टमर्स में बदलें।">Fast, mobile-first websites with clean semantic code, built specifically to score 90+ on Google PageSpeed and convert traffic.</p>
       <ul class="svc-points">
-        <li>Custom-designed, mobile-first websites that score 90+ on Google PageSpeed for fast loading on Indian networks</li>
-        <li>On-page SEO baked in from the start — structured URLs, schema markup, meta tags, and XML sitemaps</li>
-        <li>Lead capture integration — contact forms, WhatsApp click-to-chat, and call tracking built into every page</li>
-        <li>CMS setup (WordPress / Webflow) so you can update content yourself without needing a developer</li>
-        <li>3 months of free post-launch support — bug fixes, content updates, and performance monitoring included</li>
+        <li data-en="Custom-designed, mobile-first websites that score 90+ on Google PageSpeed for fast loading on mobile networks" data-hi="कस्टम-डिजाइन वेबसाइट्स जो मोबाइल नेटवर्क पर तेजी से लोड होने के लिए गूगल पेजस्पीड पर 90+ स्कोर करें">Custom-designed, mobile-first websites that score 90+ on Google PageSpeed for fast loading on mobile networks</li>
+        <li data-en="On-page SEO baked in from the start: structured URLs, schema markup, meta tags, and XML sitemaps" data-hi="शुरुआत से ही ऑन-पेज SEO शामिल: स्ट्रक्चर्ड URLs, स्कीमा मार्कअप, मेटा टैग्स और XML साइटमैप्स">On-page SEO baked in from the start: structured URLs, schema markup, meta tags, and XML sitemaps</li>
+        <li data-en="Lead capture integration: contact forms, WhatsApp click-to-chat, and call tracking built into every page" data-hi="लीड कैप्चर इंटीग्रेशन: कॉन्टैक्ट फॉर्म्स, व्हाट्सएप क्लिक-टू-चैट और कॉल ट्रैकिंग हर पेज पर मौजूद">Lead capture integration: contact forms, WhatsApp click-to-chat, and call tracking built into every page</li>
+        <li data-en="CMS setup (WordPress or Webflow) so you can update content yourself without needing a developer" data-hi="वर्डप्रेस या वेबफ्लो सेटअप ताकि आप बिना किसी डेवलपर के खुद आसानी से कंटेंट अपडेट कर सकें">CMS setup (WordPress or Webflow) so you can update content yourself without needing a developer</li>
+        <li data-en="3 months of free post-launch support: bug fixes, content updates, and performance monitoring included" data-hi="लॉन्च के बाद 3 महीने का बिल्कुल फ्री सपोर्ट: बग फिक्स, कंटेंट अपडेट और वेबसाइट की निगरानी शामिल">3 months of free post-launch support: bug fixes, content updates, and performance monitoring included</li>
       </ul>
     </div>
 
@@ -726,16 +910,16 @@ footer p{
             <path d="M7 10L9.5 11.5L7 13V10Z" fill="#4DFFB4"/>
           </svg>
         </div>
-        <span class="svc-price-badge">From ₹12,000/mo</span>
+        <span class="svc-price-badge" data-en="From ₹12,000/mo" data-hi="₹12,000/माह से">From ₹12,000/mo</span>
       </div>
-      <h3>Video & Reels</h3>
-      <p class="svc-tagline">Scroll-stopping short-form video that makes your brand impossible to ignore on Instagram, YouTube, and beyond.</p>
+      <h3 data-en="Search-Optimized Video" data-hi="सर्च-ऑप्टिमाइज़्ड वीडियो">Search-Optimized Video</h3>
+      <p class="svc-tagline" data-en="High-impact video and Reels optimized for local search intent across YouTube Shorts and Instagram feeds." data-hi="यूट्यूब शॉर्ट्स और इंस्टाग्राम सर्च में अपनी अलग पहचान बनाने के लिए लोकल सर्च इंटेंट के अनुकूल तैयार किए गए रील्स और वीडियो।">High-impact video and Reels optimized for local search intent across YouTube Shorts and Instagram feeds.</p>
       <ul class="svc-points">
-        <li>8–15 Reels or YouTube Shorts per month — scripted, edited, captioned, and formatted for each platform</li>
-        <li>Trending audio and hook-based openers designed to stop the scroll in the first 2 seconds</li>
-        <li>Brand-consistent templates and transitions so your videos are instantly recognizable in any feed</li>
-        <li>Product showcases, behind-the-scenes, testimonials, and educational content mixed for maximum variety</li>
-        <li>Performance tracking — views, watch time, shares, and saves with monthly content strategy adjustments</li>
+        <li data-en="8 to 15 Reels or YouTube Shorts per month: scripted, edited, captioned, and formatted for each platform" data-hi="हर महीने 8 से 15 रील्स या यूट्यूब शॉर्ट्स: स्क्रिप्टिंग, एडिटिंग, आकर्षक कैप्शंस और सही फॉर्मेटिंग के साथ">8 to 15 Reels or YouTube Shorts per month: scripted, edited, captioned, and formatted for each platform</li>
+        <li data-en="Trending audio and hook-based openers designed to stop the scroll in the first 2 seconds" data-hi="ट्रेंडिंग ऑडियो और हुक-बेस्ड ओपनर्स ताकि लोग पहले 2 सेकंड में स्क्रॉल करना छोड़कर वीडियो देखें">Trending audio and hook-based openers designed to stop the scroll in the first 2 seconds</li>
+        <li data-en="Brand-consistent templates and transitions so your videos are instantly recognizable in any feed" data-hi="ब्रांड के अनुकूल टेम्पलेट्स और ट्रांजिशन ताकि आपकी वीडियो फीड में अलग और तुरंत पहचानी जा सके">Brand-consistent templates and transitions so your videos are instantly recognizable in any feed</li>
+        <li data-en="Product showcases, behind-the-scenes, testimonials, and educational content mixed for maximum variety" data-hi="प्रोडक्ट शोकेस, बिहाइंड-द-सीन्स, क्लाइंट टेस्टीमोनियल्स और ज्ञानवर्धक कंटेंट का सही मिश्रण">Product showcases, behind-the-scenes, testimonials, and educational content mixed for maximum variety</li>
+        <li data-en="Performance tracking including views, watch time, shares, and saves with monthly content strategy adjustments" data-hi="परफॉरमेंस ट्रैकिंग: व्यूज, वॉच टाइम, शेयर्स और सेव्स के आधार पर हर महीने कंटेंट स्ट्रेटजी में सुधार">Performance tracking including views, watch time, shares, and saves with monthly content strategy adjustments</li>
       </ul>
     </div>
 
@@ -749,16 +933,16 @@ footer p{
             <circle cx="11" cy="13" r="1.2" fill="#4DFFB4"/>
           </svg>
         </div>
-        <span class="svc-price-badge">From ₹12,000 once</span>
+        <span class="svc-price-badge" data-en="From ₹12,000 once" data-hi="₹12,000 (एक बार)">From ₹12,000 once</span>
       </div>
-      <h3>Brand Design</h3>
-      <p class="svc-tagline">Logos, visual identity, and design systems that make your business look like it belongs at the top — because it does.</p>
+      <h3 data-en="E-E-A-T Brand Design" data-hi="E-E-A-T ब्रांड डिजाइन">E-E-A-T Brand Design</h3>
+      <p class="svc-tagline" data-en="Professional visual identity and design systems that build massive brand trust, satisfying Google's E-E-A-T quality requirements." data-hi="पेशेवर विजुअल पहचान जो आपके बिजनेस को बेहद विश्वसनीय और प्रीमियम बनाती है, जो गूगल की E-E-A-T सर्च क्वालिटी आवश्यकताओं को पूरा करती है।">Professional visual identity and design systems that build massive brand trust, satisfying Google's E-E-A-T quality requirements.</p>
       <ul class="svc-points">
-        <li>Logo design with 3 unique concepts, 2 revision rounds, and full delivery in all formats (SVG, PNG, PDF)</li>
-        <li>Brand color palette and typography system — documented so every designer you ever hire stays consistent</li>
-        <li>Social media kit — profile pictures, cover photos, highlight covers, and post templates ready to use</li>
-        <li>Business card, letterhead, and basic print collateral design included in the full brand package</li>
-        <li>Brand guidelines PDF — your complete visual rulebook so your brand always looks professional everywhere</li>
+        <li data-en="Logo design with 3 unique concepts, 2 revision rounds, and full delivery in all formats (SVG, PNG, PDF)" data-hi="3 अलग कॉन्सेप्ट्स, 2 बार बदलाव की सुविधा और सभी फॉर्मेट्स (SVG, PNG, PDF) में लोगो की फाइनल डिलीवरी">Logo design with 3 unique concepts, 2 revision rounds, and full delivery in all formats (SVG, PNG, PDF)</li>
+        <li data-en="Brand color palette and typography system documented so every designer you ever hire stays consistent" data-hi="ब्रांड कलर पैलेट और फॉन्ट सिस्टम गाइडलाइन्स ताकि आगे चलकर कोई भी designer आपकी ब्रांड वैल्यू को न बदले">Brand color palette and typography system documented so every designer you ever hire stays consistent</li>
+        <li data-en="Social media kit including profile pictures, cover photos, highlight covers, and templates ready to use" data-hi="सोशल मीडिया किट: रेडी-टू-यूज प्रोफाइल पिक्चर्स, कवर फोटोज, हाईलाइट कवर्स और पोस्ट टेम्पलेट्स">Social media kit including profile pictures, cover photos, highlight covers, and templates ready to use</li>
+        <li data-en="Business card, letterhead, and basic print collateral design included in the full brand package" data-hi="बिजनेस कार्ड, लेटरहेड और बेसिक प्रिंट डिज़ाइन्स पूरे ब्रांड पैकेज में पहले से ही शामिल">Business card, letterhead, and basic print collateral design included in the full brand package</li>
+        <li data-en="Brand guidelines PDF: your complete visual rulebook so your brand always looks professional everywhere" data-hi="ब्रांड गाइडलाइन्स PDF: आपकी पूरी विजुअल गाइड बुक ताकि आपका ब्रांड हर जगह प्रोफेशनल दिखे">Brand guidelines PDF: your complete visual rulebook so your brand always looks professional everywhere</li>
       </ul>
     </div>
 
@@ -771,20 +955,20 @@ footer p{
   <div class="ticker-fade-l"></div>
   <div class="ticker-fade-r"></div>
   <div class="ticker-track" id="ticker2" style="animation-direction:reverse">
-    <div class="ticker-item">Results-Driven<div class="ticker-dot"></div></div>
-    <div class="ticker-item">No Lock-ins<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Weekly Reports<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Dedicated Manager<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Transparent Pricing<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Real ROI<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Local Experts<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Results-Driven<div class="ticker-dot"></div></div>
-    <div class="ticker-item">No Lock-ins<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Weekly Reports<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Dedicated Manager<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Transparent Pricing<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Real ROI<div class="ticker-dot"></div></div>
-    <div class="ticker-item">Local Experts<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Results-Driven" data-hi="परिणाम-उन्मुख">Results-Driven<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="No Lock-ins" data-hi="कोई बाध्यता नहीं">No Lock-ins<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Weekly Reports" data-hi="साप्ताहिक रिपोर्ट्स">Weekly Reports<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Dedicated Manager" data-hi="समर्पित मैनेजर">Dedicated Manager<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Transparent Pricing" data-hi="पारदर्शी मूल्य निर्धारण">Transparent Pricing<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Real ROI" data-hi="सच्चा मुनाफा">Real ROI<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Local Experts" data-hi="स्थानीय विशेषज्ञ">Local Experts<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Results-Driven" data-hi="परिणाम-उन्मुख">Results-Driven<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="No Lock-ins" data-hi="कोई बाध्यता नहीं">No Lock-ins<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Weekly Reports" data-hi="साप्ताहिक रिपोर्ट्स">Weekly Reports<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Dedicated Manager" data-hi="समर्पित मैनेजर">Dedicated Manager<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Transparent Pricing" data-hi="पारदर्शी मूल्य निर्धारण">Transparent Pricing<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Real ROI" data-hi="सच्चा मुनाफा">Real ROI<div class="ticker-dot"></div></div>
+    <div class="ticker-item" data-en="Local Experts" data-hi="स्थानीय विशेषज्ञ">Local Experts<div class="ticker-dot"></div></div>
   </div>
 </div>
 
@@ -792,38 +976,61 @@ footer p{
 <section id="process">
 <div class="section">
   <div class="r">
-    <div class="sec-label">How it works</div>
-    <h2>First call to<br>full growth.</h2>
+    <div class="sec-label" data-en="How it works" data-hi="काम कैसे करता है">How it works</div>
+    <h2 data-en="First call to full growth." data-hi="पहली कॉल से सम्पूर्ण ग्रोथ तक।">First call to full growth.</h2>
   </div>
   <div class="proc-wrap">
     <div class="proc-sticky r d1">
-      <p>A repeatable process. Proven across 50+ businesses in Jabalpur and across India. No guesswork, no generic playbooks — everything custom-built around your goals.</p>
+      <p data-en="A repeatable process. Proven across 50+ businesses in Jabalpur and across India. No guesswork, no generic playbooks: everything custom-built around your search rankings." data-hi="एक ऐसा भरोसेमंद सिस्टम जिसे भारत और जबलपुर के 50 से अधिक व्यवसायों पर आजमाया जा चुका है। कोई अंदाजा नहीं, सब कुछ विशेष रूप से आपकी गूगल सर्च रैंकिंग्स को बेहतर बनाने के लिए तैयार किया जाता है।">A repeatable process. Proven across 50+ businesses in Jabalpur and across India. No guesswork, no generic playbooks: everything custom-built around your search rankings.</p>
     </div>
     <div class="proc-steps">
       <div class="proc-step r">
         <div class="proc-num">01</div>
         <div>
-          <h3>Audit & Understand</h3>
-          <p>We dig deep into your market, competitors, and current digital footprint. You get a full picture of where you stand and what's realistically possible — before we ask you for a single rupee.</p>
-          <span class="proc-badge badge-green">✓ Week 1 — Free</span>
+          <h3 data-en="Audit & Understand" data-hi="ऑडिट और विश्लेषण">Audit & Understand</h3>
+          <p data-en="We dig deep into your market, competitors, and current digital footprint. You get a clear picture of where you stand and what is realistically possible before we ask for anything." data-hi="हम आपके मार्केट, कॉम्पिटिटर्स और आपके मौजूदा डिजिटल फुटप्रिंट का गहराई से अध्ययन करते हैं। बिना किसी फीस के, आपको एक साफ तस्वीर मिलती है कि आप अभी कहाँ खड़े हैं और आपके लिए क्या संभव है।">We dig deep into your market, competitors, and current digital footprint. You get a clear picture of where you stand and what is realistically possible before we ask for anything.</p>
+          <span class="proc-badge badge-green" data-en="✓ Week 1 : Free" data-hi="✓ सप्ताह 1 : बिल्कुल मुफ्त">✓ Week 1 : Free</span>
         </div>
       </div>
       <div class="proc-step r d1">
         <div class="proc-num">02</div>
         <div>
-          <h3>Build the Strategy</h3>
-          <p>A custom 90-day growth plan — which channels, what budget, what targets. Built entirely for your business, not a template we reuse for every client. You review and approve before anything starts.</p>
-          <span class="proc-badge badge-blue">→ Week 2–3</span>
+          <h3 data-en="Build the Strategy" data-hi="रणनीति का निर्माण">Build the Strategy</h3>
+          <p data-en="A custom 90-day growth plan outlining which channels, what budget, and what targets to hit. Built entirely for your business, not a template we reuse. You review and approve before anything starts." data-hi="एक कस्टम 90-दिनों का ग्रोथ प्लान जो यह दिखाता है कि किस चैनल का उपयोग करना है, क्या बजट होगा और क्या लक्ष्य हासिल करने हैं। यह पूरी तरह से आपके बिजनेस के लिए होता है, कोई पुराना टेम्पलेट नहीं। आपके अप्रूवल के बाद ही काम शुरू होता है।">A custom 90-day growth plan outlining which channels, what budget, and what targets to hit. Built entirely for your business, not a template we reuse. You review and approve before anything starts.</p>
+          <span class="proc-badge badge-blue" data-en="→ Week 2-3" data-hi="→ सप्ताह 2-3">→ Week 2-3</span>
         </div>
       </div>
       <div class="proc-step r d2">
         <div class="proc-num">03</div>
         <div>
-          <h3>Execute & Scale</h3>
-          <p>Consistent execution with weekly updates and monthly reports. We adapt fast — doubling down on what works, cutting what doesn't, and proactively finding new opportunities before you ask.</p>
-          <span class="proc-badge badge-orange">↑ Month 1 onward</span>
+          <h3 data-en="Execute & Scale" data-hi="काम और पैमाना बढ़ाना">Execute & Scale</h3>
+          <p data-en="Consistent execution with weekly updates and monthly reports. We adapt fast: doubling down on what works, cutting what doesn't, and proactively finding new opportunities before you ask." data-hi="साप्ताहिक अपडेट और मासिक रिपोर्ट के साथ लगातार काम करना। हम तेजी से रणनीतियां बदलते हैं: जो काम कर रहा है उसे दोगुना बढ़ाते हैं, जो नहीं कर रहा उसे हटाते हैं और हमेशा नए अवसरों को खोजते रहते हैं।">Consistent execution with weekly updates and monthly reports. We adapt fast: doubling down on what works, cutting what doesn't, and proactively finding new opportunities before you ask.</p>
+          <span class="proc-badge badge-orange" data-en="↑ Month 1 onward" data-hi="↑ महीना 1 से शुरू">↑ Month 1 onward</span>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- BLOGS Grid Section -->
+<section id="blog">
+<div class="section">
+  <div class="r" style="margin-bottom: 48px; text-align: center;">
+    <div class="sec-label" data-en="Insights & Strategy" data-hi="ब्रांड इनसाइट्स" style="justify-content: center;">Insights & Strategy</div>
+    <h2 data-en="Our Latest Blogs" data-hi="हमारे नवीनतम ब्लॉग्स">Our Latest Blogs</h2>
+    <p class="sec-desc" data-en="Fresh thoughts on SEO, search algorithms, and local business growth. No fluff, just actionable insights." data-hi="SEO, सर्च एल्गोरिथम और लोकल बिजनेस ग्रोथ पर ताज़ा विचार। कोई फ़ालतू की बातें नहीं, सिर्फ काम के असली इनसाइट्स।" style="margin: 0 auto;">Fresh thoughts on SEO, search algorithms, and local business growth. No fluff, just actionable insights.</p>
+  </div>
+  <div class="blog-grid">
+    <!-- Featured Blog Card (r/technology AI Regret Post) -->
+    <div class="blog-card r">
+      <div class="blog-meta">
+        <span class="blog-tag" data-en="SEO Strategy" data-hi="SEO रणनीति">SEO Strategy</span>
+        <span class="blog-date">July 1, 2026</span>
+      </div>
+      <h3 data-en="The Costly AI Illusion: Why 55% of Companies Now Regret Their AI Layoffs (And Why Real SEO Still Demands Humans)" data-hi="महँगा साबित हुआ AI का भ्रम: 55% कंपनियाँ क्यों पछता रही हैं अपने AI फैसलों पर? (और असली SEO के लिए इंसान क्यों जरूरी हैं)">The Costly AI Illusion: Why 55% of Companies Now Regret Their AI Layoffs (And Why Real SEO Still Demands Humans)</h3>
+      <p class="blog-excerpt" data-en="A viral Reddit post on r/technology highlighted a shocking CNBC report: companies like Ford and IBM are reversing course and rehiring employees after AI failed to handle human tasks. Let's break down why cutting corners with AI backfires—especially when it comes to ranking on Google." data-hi="रेडिट के r/technology पर एक पोस्ट ने चौंकाने वाली CNBC रिपोर्ट को उजागर किया: फोर्ड और IBM जैसी बड़ी कंपनियां अब अपने AI-उन्मुख फैसलों को बदलकर इंसानों को वापस काम पर रख रही हैं। जानें क्यों AI से शॉर्टकट लेना भारी पड़ रहा है, खासकर जब बात गूगल रैंकिंग की हो।">A viral Reddit post on r/technology highlighted a shocking CNBC report: companies like Ford and IBM are reversing course and rehiring employees after AI failed to handle human tasks. Let's break down why cutting corners with AI backfires—especially when it comes to ranking on Google.</p>
+      <button class="blog-btn" onclick="openBlog(1)" data-en="Read Article →" data-hi="लेख पढ़ें →">Read Article →</button>
     </div>
   </div>
 </div>
@@ -834,55 +1041,67 @@ footer p{
 <div id="contact-section">
 <div class="contact-wrap">
   <div class="contact-left r">
-    <div class="sec-label">Start today</div>
-    <h2>Tell us about<br>your business.</h2>
-    <p class="sec-desc">We'll build a custom strategy and walk you through it on a free 30-min call. No pitching. Just clarity on what will actually work.</p>
+    <div class="sec-label" data-en="Start today" data-hi="आज ही शुरू करें">Start today</div>
+    <h2 data-en="Tell us about your business." data-hi="अपने बिजनेस के बारे में बताएं।">Tell us about your business.</h2>
+    <p class="sec-desc" data-en="We'll build a custom search strategy and walk you through it on a free 30-minute call. No pitch, just pure clarity on what actually works to rank your business." data-hi="हम आपके लिए एक कस्टम सर्च रणनीति तैयार करेंगे और 30 मिनट की एक फ्री कॉल पर आपको समझाएंगे। कोई सेल्स पिच नहीं, सिर्फ स्पष्ट बात कि आपके बिजनेस को रैंक कराने के लिए क्या काम करेगा।">We'll build a custom search strategy and walk you through it on a free 30-minute call. No pitch, just pure clarity on what actually works to rank your business.</p>
     <div class="contact-info" style="margin-top:32px">
-      <a href="mailto:jagjeetc34@gmail.com" class="cinfo-item">
+      <a href="mailto:rankivdigital@gmail.com" class="cinfo-item">
         <div class="cinfo-icon">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="10" rx="2" stroke="var(--muted)" stroke-width="1.5"/><path d="M2 7L9 11L16 7" stroke="var(--muted)" stroke-width="1.4" stroke-linecap="round"/></svg>
         </div>
-        jagjeetc34@gmail.com
+        rankivdigital@gmail.com
       </a>
-      <a href="https://wa.me/918319724668" class="cinfo-item" target="_blank">
+      <a href="https://wa.me/919407440075" class="cinfo-item" target="_blank">
         <div class="cinfo-icon">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M15.5 3A8.5 8.5 0 102.5 13.5L2 16.5l3-.5A8.5 8.5 0 0015.5 3z" stroke="var(--muted)" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 9c0 2.5 2 4.5 4.5 4.5" stroke="var(--muted)" stroke-width="1.4" stroke-linecap="round"/></svg>
         </div>
-        +91 83197 24668 (WhatsApp)
+        +91 94074 40075 (WhatsApp)
       </a>
     </div>
   </div>
   <div class="form-card r d2">
     <div class="form-row">
-      <div class="fg"><label>Your name</label><input type="text" placeholder="Rahul Sharma" id="fn"></div>
-      <div class="fg"><label>Phone number</label><input type="tel" placeholder="+91 98765 43210" id="fp"></div>
+      <div class="fg">
+        <label data-en="Your name" data-hi="आपका नाम">Your name</label>
+        <input type="text" placeholder="Rahul Sharma" id="fn" data-en-placeholder="Rahul Sharma" data-hi-placeholder="राहुल शर्मा">
+      </div>
+      <div class="fg">
+        <label data-en="Phone number" data-hi="फ़ोन नंबर">Phone number</label>
+        <input type="tel" placeholder="+91 98765 43210" id="fp" data-en-placeholder="+91 98765 43210" data-hi-placeholder="+91 98765 43210">
+      </div>
     </div>
     <div class="form-row">
-      <div class="fg"><label>Business name</label><input type="text" placeholder="Your business" id="fb"></div>
       <div class="fg">
-        <label>Industry</label>
+        <label data-en="Business name" data-hi="बिजनेस का नाम">Business name</label>
+        <input type="text" placeholder="Your business" id="fb" data-en-placeholder="Your business" data-hi-placeholder="आपके बिजनेस का नाम">
+      </div>
+      <div class="fg">
+        <label data-en="Industry" data-hi="बिजनेस कैटेगरी">Industry</label>
         <select id="fi">
-          <option value="">Select industry</option>
-          <option>Restaurant / Café</option>
-          <option>Clinic / Hospital</option>
-          <option>Coaching / Education</option>
-          <option>Salon / Spa</option>
-          <option>Real Estate</option>
-          <option>Retail / Shop</option>
-          <option>Fitness / Gym</option>
-          <option>E-commerce</option>
-          <option>Other</option>
+          <option value="" data-en="Select industry" data-hi="इंडस्ट्री चुनें">Select industry</option>
+          <option data-en="Restaurant / Café" data-hi="रेस्टोरेंट / कैफ़े">Restaurant / Café</option>
+          <option data-en="Clinic / Hospital" data-hi="क्लिनिक / अस्पताल">Clinic / Hospital</option>
+          <option data-en="Coaching / Education" data-hi="कोचिंग / शिक्षा">Coaching / Education</option>
+          <option data-en="Salon / Spa" data-hi="सैलून / स्पा">Salon / Spa</option>
+          <option data-en="Real Estate" data-hi="रियल एस्टेट">Real Estate</option>
+          <option data-en="Retail / Shop" data-hi="रिटेल / दुकान">Retail / Shop</option>
+          <option data-en="Fitness / Gym" data-hi="फिटनेस / जिम">Fitness / Gym</option>
+          <option data-en="E-commerce" data-hi="ई-कॉमर्स">E-commerce</option>
+          <option data-en="Other" data-hi="अन्य">Other</option>
         </select>
       </div>
     </div>
     <div class="form-row full">
-      <div class="fg"><label>What's your main goal?</label><textarea rows="3" placeholder="More walk-ins, higher Google ranking, stronger brand — tell us what you need..." id="fg2"></textarea></div>
+      <div class="fg">
+        <label data-en="What's your main goal?" data-hi="आपका मुख्य लक्ष्य क्या है?">What's your main goal?</label>
+        <textarea rows="3" placeholder="More walk-ins, higher Google ranking, stronger brand... tell us what you need" id="fg2" data-en-placeholder="More walk-ins, higher Google ranking, stronger brand... tell us what you need" data-hi-placeholder="ज्यादा कस्टमर, बेहतर गूगल रैंकिंग, मजबूत ब्रांड... बताएं आपको क्या चाहिए"></textarea>
+      </div>
     </div>
     <div class="form-foot">
-      <button class="btn-submit" id="fsub">Send — Get Free Consultation</button>
-      <a href="https://wa.me/918319724668" class="wa-link" target="_blank">
+      <button class="btn-submit" id="fsub" data-en="Send: Get Free Consultation" data-hi="भेजें: फ्री सलाह लें">Send: Get Free Consultation</button>
+      <a href="https://wa.me/919407440075" class="wa-link" target="_blank">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 2.5A6.5 6.5 0 102 10.5L1.5 14.5l4-.5A6.5 6.5 0 0013.5 2.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
-        WhatsApp instead
+        <span data-en="WhatsApp instead" data-hi="व्हाट्सएप करें">WhatsApp instead</span>
       </a>
     </div>
   </div>
@@ -892,22 +1111,35 @@ footer p{
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 Rankiv. Crafted with precision in India.</p>
+  <p data-en="© 2026 Rankiv. Crafted with precision in India." data-hi="© 2026 Rankiv. भारत में सटीकता से निर्मित।">© 2026 Rankiv. Crafted with precision in India.</p>
   <div class="foot-links">
-    <a href="mailto:jagjeetc34@gmail.com">jagjeetc34@gmail.com</a>
-    <a href="https://wa.me/918319724668" target="_blank">+91 83197 24668</a>
+    <a href="mailto:rankivdigital@gmail.com">rankivdigital@gmail.com</a>
+    <a href="https://wa.me/919407440075" target="_blank">+91 94074 40075</a>
   </div>
 </footer>
 
 </div><!-- #app -->
 
+<!-- BLOG DETAIL MODAL -->
+<div class="modal-overlay" id="blogModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeBlog()" aria-label="Close modal">&times;</button>
+    <div class="blog-meta" style="margin-bottom: 20px">
+      <span class="blog-tag" id="modalTag">SEO Strategy</span>
+      <span class="blog-date" id="modalDate">July 1, 2026</span>
+    </div>
+    <h2 class="modal-title" id="modalTitle">Blog Title</h2>
+    <div class="modal-body" id="modalBody">
+      <!-- Content populated dynamically -->
+    </div>
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 /* ═══════════════════════════════════════════════════════════════
    THREE.JS — INTERACTIVE SIGNAL MESH
-   Mathematical sine/cosine wave grid that ripples from mouse
-   position. On scroll, field parameters shift. No particles —
-   just clean geometry lines against a dark sky.
+   Mathematical sine/cosine wave grid that ripples from mouse.
 ═══════════════════════════════════════════════════════════════ */
 (function(){
   const isMob = /Mobi|Android/i.test(navigator.userAgent) || innerWidth < 600;
@@ -923,17 +1155,14 @@ footer p{
   camera.position.set(0, 22, 28);
   camera.lookAt(0, 0, 0);
 
-  /* ── GRID PARAMETERS ── */
   const COLS = isMob ? 28 : 52;
   const ROWS = isMob ? 28 : 52;
   const SIZE = 26;
 
-  /* Vertex positions */
   const posArr  = [];
   const colArr  = [];
   const idxArr  = [];
 
-  /* Store base XZ per vertex for animation */
   const baseX = [];
   const baseZ = [];
   const totalV = (COLS+1)*(ROWS+1);
@@ -945,10 +1174,8 @@ footer p{
       posArr.push(x, 0, z);
       baseX.push(x);
       baseZ.push(z);
-      /* color: electric green at center, blue at edges */
       const dist = Math.sqrt(x*x + z*z) / (SIZE*0.7);
       const t = Math.min(dist, 1);
-      /* RGB: lerp from (0.3,1,0.7) to (0.15,0.33,0.65) */
       colArr.push(
         0.3 - t*0.15,
         1.0 - t*0.67,
@@ -957,7 +1184,6 @@ footer p{
     }
   }
 
-  /* Build line-segment indices (grid lines) */
   for(let r=0; r<=ROWS; r++){
     for(let c=0; c<=COLS; c++){
       const i = r*(COLS+1)+c;
@@ -982,20 +1208,17 @@ footer p{
   const mesh = new THREE.LineSegments(geo, mat);
   scene.add(mesh);
 
-  /* Mouse world position */
   let mx = 0, mz = 0, tmx = 0, tmz = 0;
   window.addEventListener('mousemove', e=>{
     tmx = (e.clientX/innerWidth  - 0.5) * SIZE;
     tmz = (e.clientY/innerHeight - 0.5) * SIZE;
   }, {passive:true});
 
-  /* Scroll */
   let scrollRatio = 0;
   window.addEventListener('scroll',()=>{
     scrollRatio = Math.min(scrollY / (document.body.scrollHeight - innerHeight), 1);
   },{passive:true});
 
-  /* Animation */
   let t = 0, last = 0;
   function tick(now){
     requestAnimationFrame(tick);
@@ -1003,11 +1226,9 @@ footer p{
     last = now;
     t += dt;
 
-    /* Smooth mouse */
     mx += (tmx - mx) * 0.06;
     mz += (tmz - mz) * 0.06;
 
-    /* Wave parameters that shift with scroll */
     const freq1 = 0.32 + scrollRatio * 0.25;
     const freq2 = 0.18 + scrollRatio * 0.12;
     const amp   = 1.4 + scrollRatio * 1.2;
@@ -1020,22 +1241,19 @@ footer p{
       const bx = baseX[v], bz = baseZ[v];
       const vi = v*3;
 
-      /* Mouse ripple */
       const dx = bx - mx, dz = bz - mz;
       const mdist = Math.sqrt(dx*dx + dz*dz);
       const mRipple = Math.exp(-mdist*0.18) * Math.sin(mdist*0.9 - t*5.0) * 0.9;
 
-      /* Global waves */
       const wave1 = Math.sin(bx*freq1 + t*speed) * Math.cos(bz*freq1 + t*speed*0.7) * amp;
       const wave2 = Math.sin((bx+bz)*freq2 - t*speed*0.55) * amp * 0.55;
       const wave3 = Math.cos(bz*0.22 + t*0.4) * amp * 0.35;
 
       pos[vi+1] = wave1 + wave2 + wave3 + mRipple;
 
-      /* Dynamic coloring based on height */
       const h = pos[vi+1];
       const hNorm = (h + amp*2) / (amp*4);
-      const glow  = Math.max(0, 1 - mdist*0.14); /* mouse glow */
+      const glow  = Math.max(0, 1 - mdist*0.14);
 
       col[vi]   = 0.15 + hNorm*0.35 + glow*0.25;
       col[vi+1] = 0.8  - hNorm*0.35 + glow*0.18;
@@ -1044,7 +1262,6 @@ footer p{
     geo.attributes.position.needsUpdate = true;
     geo.attributes.color.needsUpdate    = true;
 
-    /* Gentle camera rotation */
     const camAngle = t * 0.028;
     camera.position.x = Math.sin(camAngle) * 5;
     camera.position.z = 28 + Math.cos(camAngle) * 5;
@@ -1089,18 +1306,101 @@ const io = new IntersectionObserver(entries=>{
 },{threshold:0.08});
 document.querySelectorAll('.r').forEach(el=>io.observe(el));
 
-/* ═══ FORM ════════════════════════════════════════════════════ */
+/* ═══ BILINGUAL TRANSLATION SYSTEM ════════════════════════════ */
+let currentLang = 'en';
+const langToggle = document.getElementById('langToggle');
+const langLabel = document.getElementById('langLabel');
+
+langToggle.addEventListener('click', () => {
+  currentLang = currentLang === 'en' ? 'hi' : 'en';
+  document.documentElement.lang = currentLang;
+
+  // Toggle active styling
+  if (currentLang === 'hi') {
+    langToggle.classList.add('active');
+    langLabel.textContent = 'English';
+  } else {
+    langToggle.classList.remove('active');
+    langLabel.textContent = 'हिंदी';
+  }
+
+  // Update all standard text elements
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const text = currentLang === 'hi' ? el.getAttribute('data-hi') : el.getAttribute('data-en');
+    if (text) el.innerHTML = text;
+  });
+
+  // Update input/textarea placeholders
+  document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+    const placeholder = currentLang === 'hi' ? el.getAttribute('data-hi-placeholder') : el.getAttribute('data-en-placeholder');
+    if (placeholder) el.setAttribute('placeholder', placeholder);
+  });
+
+  // Translate modal content dynamically if open
+  if (activeBlogId) {
+    openBlog(activeBlogId);
+  }
+});
+
+/* ═══ FORM SUBMIT ═════════════════════════════════════════════ */
 document.getElementById('fsub').addEventListener('click',function(){
   const name = document.getElementById('fn').value.trim();
   if(!name){ document.getElementById('fn').focus(); return; }
-  const orig = this.textContent;
-  this.textContent = '✓ Sent! We\'ll call you within 24 hours.';
+  const orig = this.innerHTML;
+  this.innerHTML = currentLang === 'hi' ? '✓ भेजा गया! हम आपको 24 घंटे में कॉल करेंगे।' : '✓ Sent! We\'ll call you within 24 hours.';
   this.style.background = '#059669';
   setTimeout(()=>{
-    this.textContent = orig;
+    this.innerHTML = orig;
     this.style.background = '';
   }, 4000);
 });
+
+/* ═══ BLOGS DATA & INTERACTIVE MODAL (CNBC AI LAYOFF REGRET ARTICLE) ══════════════════════════ */
+const blogsData = {
+  1: {
+    tag_en: "SEO Strategy",
+    tag_hi: "SEO रणनीति",
+    date: "July 1, 2026",
+    title_en: "The Costly AI Illusion: Why 55% of Companies Now Regret Their AI Layoffs (And Why Real SEO Still Demands Humans)",
+    title_hi: "महँगा साबित हुआ AI का भ्रम: 55% कंपनियाँ क्यों पछता रही हैं अपने AI फैसलों पर? (और असली SEO के लिए इंसान क्यों जरूरी हैं)",
+    body_en: `<p>If you've spent any time on Reddit's <strong>r/technology</strong> lately, you probably saw a thread that completely shattered the "AI is taking all our jobs" narrative. Highlighting a major CNBC investigation, the post revealed a massive trend of corporate regret: <strong>over 55% of employers who laid off human workers to replace them with AI now regret their decision.</strong> Many are quietly rehiring the very people they let go.</p>
+              <p>Automaker <strong>Ford</strong> is one of the biggest names backtracking. They are rehiring hundreds of experienced human engineers to fix quality issues that their automated systems completely missed. Charles Poon, Ford's VP of Hardware Engineering, put it perfectly: <em>"AI is a great tool, but its effectiveness depends entirely on the quality of the data used to train it."</em></p>
+              <p>Similarly, Australia's largest bank, the <strong>Commonwealth Bank of Australia (CBA)</strong>, replaced over 40 customer service representatives with an AI voice bot last year. The result? Total chaos. The AI couldn't handle complex, natural human conversations, leading to a massive backlog of unanswered customer queries and forcing the bank to reverse the job cuts and bring back humans.</p>
+              <p>And <strong>IBM</strong> experienced the same trap. While their AI managed to handle 94% of routine HR requests, it failed miserably on the remaining 6% of complex ethical dilemmas. To patch the gap, IBM announced plans to triple its entry-level human hiring in the US.</p>
+              <h3>What This Means for the Future of SEO</h3>
+              <p>This "AI Layoff Regret" contains an incredibly valuable lesson for Indian business owners trying to rank on Google. Just as these billion-dollar enterprises learned the hard way, <strong>fully automated, AI-generated content is a recipe for search engine failure.</strong></p>
+              <p>Google's search algorithm is designed to reward <strong>E-E-A-T (Experience, Expertise, Authoritativeness, and Trustworthiness)</strong>. When businesses use tools like ChatGPT or Claude to mass-produce cheap, generic articles, Google immediately recognizes the lack of real-world human experience. The results are instant: your rankings tank, your traffic disappears, and your customers bounce because the content lacks soul, original insights, and genuine brand authority.</p>
+              <p>At Rankiv, we leverage AI to speed up research, but <strong>every piece of SEO strategy, keyword optimization, and copywriting is crafted, verified, and polished by human local SEO specialists.</strong> That's why our clients don't just get traffic; they get actual walk-ins, phone calls, and high-quality leads. Don't fall for the cheap AI shortcut: search success is built on human authenticity.</p>`,
+    body_hi: `<p>यदि आपने हाल ही में रेडिट के <strong>r/technology</strong> सबरेडिट पर थोड़ा भी समय बिताया है, तो आपने एक ऐसी थ्रेड देखी होगी जिसने "AI सभी नौकरियां छीन लेगा" वाले झूठे दावे को पूरी तरह से खारिज कर दिया। CNBC की एक बड़ी खोजी रिपोर्ट को साझा करते हुए, इस पोस्ट ने कॉरपोरेट जगत की एक बड़ी सच्चाई को उजागर किया: <strong>55% से अधिक नियोक्ताओं (कंपनियों) को अपने AI-आधारित छंटनी के फैसलों पर अब गहरा पछतावा है।</strong> और वे अब चुपचाप उन्हीं इंसानों को वापस नौकरी पर रख रहे हैं जिन्हें उन्होंने निकाल दिया था।</p>
+              <p>दुनिया की दिग्गज वाहन निर्माता कंपनी <strong>Ford</strong> इस बदलाव का सबसे बड़ा उदाहरण है। वे अब सैकड़ों अनुभवी मानव इंजीनियरों को फिर से काम पर रख रहे हैं ताकि उन क्वालिटी इश्यूज को ठीक किया जा सके जिन्हें उनके ऑटोमेटेड सिस्टम्स पकड़ने में पूरी तरह से फेल हो गए। फोर्ड के हार्डवेयर इंजीनियरिंग के उपाध्यक्ष चार्ल्स पून ने इसे बेहद सटीक शब्दों में कहा: <em>"AI एक बेहतरीन टूल है, लेकिन इसकी प्रभावशीलता पूरी तरह से उस डेटा की क्वालिटी पर निर्भर करती है जिसका उपयोग इसे ट्रेन करने के लिए किया गया है।"</em></p>
+              <p>इसी तरह, ऑस्ट्रेलिया के सबसे बड़े बैंक, <strong>कॉमनवेल्थ बैंक ऑफ ऑस्ट्रेलिया (CBA)</strong> ने पिछले साल 40 से अधिक कस्टमर सर्विस कर्मचारियों को हटाकर उनकी जगह एक AI वॉयस बॉट लगा दिया था। इसका परिणाम क्या हुआ? पूरी तरह से अव्यवस्था। AI ग्राहकों के स्वाभाविक सवालों को समझने में असमर्थ रहा, जिससे ग्राहकों की शिकायतें बढ़ गईं और बैंक को मजबूरन अपना फैसला बदलकर इंसानों को वापस लाना पड़ा।</p>
+              <p>यहां तक कि सॉफ्टवेयर दिग्गज <strong>IBM</strong> भी इसी जाल में फंस गया। यद्यपि उनके AI ने 94% सामान्य HR रिक्वेस्ट्स को आसानी से संभाल लिया, लेकिन वह शेष 6% जटिल नैतिक और नीतिगत उलझनों के सामने पूरी तरह विफल रहा। इस कमी को पूरा करने के लिए, IBM ने अब अमेरिका में जूनियर इंजीनियर्स और फ्रेशर्स की हायरिंग को तीन गुना करने की योजना बनाई है।</p>
+              <h3>लोकल SEO के भविष्य के लिए इसका क्या अर्थ है?</h3>
+              <p>इस 'AI लेऑफ रिग्रेट' (AI पछतावे) में उन भारतीय व्यवसाय मालिकों के लिए एक बेहद कीमती सबक छिपा है जो अपने बिजनेस को गूगल पर रैंक कराना चाहते हैं। जिस तरह इन बड़ी कंपनियों ने भारी नुकसान सहकर यह सबक सीखा, उसी तरह आपको भी समझना होगा: <strong>पूरी तरह से AI द्वारा जनरेट किया गया कंटेंट गूगल रैंकिंग में फेल होने का सबसे आसान तरीका है।</strong></p>
+              <p>गूगल का सर्च एल्गोरिथम पूरी तरह से <strong>E-E-A-T (अनुभव, विशेषज्ञता, अधिकारिता और विश्वसनीयता)</strong> के सिद्धांत पर काम करता है। जब व्यवसाय केवल ChatGPT या Claude जैसे टूल्स का उपयोग करके थोक में जेनेरिक आर्टिकल तैयार करते हैं, तो गूगल तुरंत समझ जाता है कि इसमें असली इंसानी अनुभव की कमी है। इसका परिणाम तुरंत भुगतना पड़ता है: आपकी वेबसाइट की रैंकिंग गिर जाती है, ट्रैफिक गायब हो जाता है, और आपके ग्राहक आपकी वेबसाइट छोड़कर चले जाते हैं क्योंकि आपके कंटेंट में असली ब्रांड विश्वसनीयता नहीं होती।</p>
+              <p>हम Rankiv में रिसर्च के काम को तेज करने के लिए AI की मदद जरूर लेते हैं, लेकिन <strong>हमारी हर एक SEO रणनीति, कीवर्ड ऑप्टिमाइजेशन और कॉपी राइटिंग हमारे ह्यूमन SEO स्पेशलिस्ट्स द्वारा खुद तैयार और सत्यापित की जाती है।</strong> यही कारण है कि हमारे क्लाइंट्स को सिर्फ दिखावटी ट्रैफिक नहीं, बल्कि असली ग्राहक, फोन कॉल्स और लीड्स मिलते हैं। सस्ते AI शॉर्टकट्स के झांसे में न आएं, क्योंकि असली गूगल रैंकिंग हमेशा इंसानी प्रामाणिकता से ही बनती है।</p>`
+  }
+};
+
+let activeBlogId = null;
+
+function openBlog(id) {
+  activeBlogId = id;
+  const blog = blogsData[id];
+  const isHi = (currentLang === 'hi');
+  document.getElementById('modalTag').textContent = isHi ? blog.tag_hi : blog.tag_en;
+  document.getElementById('modalTitle').textContent = isHi ? blog.title_hi : blog.title_en;
+  document.getElementById('modalBody').innerHTML = isHi ? blog.body_hi : blog.body_en;
+  document.getElementById('modalDate').textContent = blog.date;
+  document.getElementById('blogModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBlog() {
+  document.getElementById('blogModal').classList.remove('open');
+  document.body.style.overflow = '';
+  activeBlogId = null;
+}
 </script>
 </body>
 </html>
