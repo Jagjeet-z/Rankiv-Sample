@@ -74,7 +74,7 @@ nav.scrolled{
   box-shadow:0 4px 14px rgba(77,255,180,0.25);
 }
 .logo-sq svg{display:block}
-.nav-r{display:flex;align-items:center;gap:32px}
+.nav-r{display:flex;align-items:center;gap:16px}
 .nav-links{list-style:none;display:flex;align-items:center;gap:28px}
 .nav-links a{
   font-size:13px;font-weight:500;
@@ -93,6 +93,28 @@ nav.scrolled{
   transition:all .2s;white-space:nowrap;
 }
 .nav-btn:hover{background:var(--electric);color:var(--bg)}
+
+/* ─── CUTE X HEADER BUTTON ─── */
+.x-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--off);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+}
+.x-nav-link:hover {
+  border-color: var(--electric);
+  color: var(--electric);
+  transform: scale(1.1) rotate(8deg);
+  background: rgba(77,255,180,0.08);
+  box-shadow: 0 0 12px rgba(77,255,180,0.25);
+}
 
 /* ─── LANGUAGE TOGGLE ─── */
 .lang-btn{
@@ -626,13 +648,27 @@ footer p{
   font-family:'JetBrains Mono',monospace;
   font-size:11px;color:var(--muted);letter-spacing:.04em;
 }
-.foot-links{display:flex;gap:24px}
+.foot-links{display:flex;gap:24px;align-items:center}
 .foot-links a{
   font-family:'JetBrains Mono',monospace;
   font-size:11px;color:var(--muted);text-decoration:none;
   letter-spacing:.06em;transition:color .2s;
 }
 .foot-links a:hover{color:var(--white)}
+
+/* Fixed CSS Specificity for Footer X Icon */
+.foot-links .x-foot-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: color 0.3s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+}
+.foot-links .x-foot-link:hover {
+  color: var(--electric);
+  transform: scale(1.25) rotate(8deg);
+}
 
 /* ─── WA FLOAT ─── */
 .wa-float{
@@ -685,7 +721,7 @@ footer p{
 <a href="https://wa.me/919407440075" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp Rankiv">
   <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
     <path d="M13 1.5C6.649 1.5 1.5 6.649 1.5 13c0 2.032.544 3.938 1.494 5.578L1.5 24.5l6.137-1.476A11.433 11.433 0 0013 24.5c6.351 0 11.5-5.149 11.5-11.5S19.351 1.5 13 1.5z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
-    <path d="M8.5 12c0 3.314 2.686 6 6 6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M8.5 12c0 3.314 2.686 6 6 6" stroke="white" stroke-linecap="round"/>
     <path d="M17.5 17.5c-1 .5-3.5.5-5.5-1.5S10.5 11 11 10c.25-.5.75-.75 1.25-.5l1.25.625c.25.125.375.5.25.75l-.5 1c-.125.25 0 .5.125.625 1.5 1.5 2.125 1.75 2.125 1.75.25.125.5 0 .625-.125l.875-.875c.25-.25.625-.25.875 0l1 1c.25.25.25.625 0 .875z" fill="white"/>
   </svg>
 </a>
@@ -710,6 +746,12 @@ footer p{
     <li><a href="#blog" data-en="Blogs" data-hi="ब्लॉग">Blogs</a></li>
   </ul>
   <div class="nav-r">
+    <!-- Header X (Twitter) Profile Link -->
+    <a href="https://x.com/thispsyguy" target="_blank" class="x-nav-link" aria-label="X (Twitter)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>
+    </a>
     <button class="lang-btn" id="langToggle" aria-label="Translate to Hindi">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0"><path d="M1 3h6M4 1v2M2.5 3c0 2.5 2 4.5 4 5.5M6.5 3C6 5 4.5 7 2 8.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.5 13l3-7 3 7M9 10.5h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span id="langLabel">हिंदी</span>
@@ -1115,6 +1157,11 @@ footer p{
   <div class="foot-links">
     <a href="mailto:rankivdigital@gmail.com">rankivdigital@gmail.com</a>
     <a href="https://wa.me/919407440075" target="_blank">+91 94074 40075</a>
+    <a href="https://x.com/thispsyguy" target="_blank" class="x-foot-link" aria-label="X (Twitter)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>
+    </a>
   </div>
 </footer>
 
